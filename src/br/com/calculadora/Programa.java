@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import br.com.calculadora.classe.Multiplicacao;
 import br.com.calculadora.interfaces.ICalculadora;
+import classe.Subtracao;
 import programa.Divisao;
 import programa.Soma;
 
@@ -15,11 +16,15 @@ public class Programa {
 		Integer opc = 0;
 		do {
 			opc = menu();
+			
 			ArrayList<Double> entrada = menuEntradaDados();
+			
 			Double data[] = new Double[entrada.size()];
+			
 			for (int i = 0; i < entrada.size(); i++) {
 				data[i] = entrada.get(i);
 			}
+			
 			String tipoEntrada = verificaTipoEntrada(data);	
 			
 			switch (opc) {
@@ -38,6 +43,18 @@ public class Programa {
 				
 				break;
 			case 2:
+				
+				interfaces.ICalculadora sub = new Subtracao();
+				
+				if(tipoEntrada.equals("inteiro")) {
+					System.out.println(sub.calcula(convertDoubleToInt(data)));
+				}
+				if(tipoEntrada.equals("double")) {
+					System.out.println(sub.calcula(data));
+				}
+				if(tipoEntrada.equals("float")) {
+					System.out.println(sub.calcula(convertDoubleToFloat(data)));
+				}
 				
 				break;
 			case 3:
@@ -151,18 +168,18 @@ public class Programa {
 		return "double";
 	}
 	
-	public static Integer[] convertDoubleToInt(Double[] array2) {
-	    Integer[] arr = new Integer[array2.length];
-	    for (int i = 0; i < array2.length; i++) {
-	        arr[i] = (int) array2[i].doubleValue();
+	public static Integer[] convertDoubleToInt(Double[] array) {
+	    Integer[] arr = new Integer[array.length];
+	    for (int i = 0; i < array.length; i++) {
+	        arr[i] = (int) array[i].doubleValue();
 	    }
 	    return arr;
 	}
 	
-	public static Float[] convertDoubleToFloat(Double[] array2) {
-	    Float[] arr = new Float[array2.length];
-	    for (int i = 0; i < array2.length; i++) {
-	        arr[i] = Float.parseFloat(array2[i].toString());
+	public static Float[] convertDoubleToFloat(Double[] array) {
+	    Float[] arr = new Float[array.length];
+	    for (int i = 0; i < array.length; i++) {
+	        arr[i] = Float.parseFloat(array[i].toString());
 	    }
 	    return arr;
 	}
