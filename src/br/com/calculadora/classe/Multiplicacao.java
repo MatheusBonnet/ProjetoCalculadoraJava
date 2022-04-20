@@ -1,35 +1,62 @@
 package br.com.calculadora.classe;
 
+import br.com.calculadora.exception.MultiplicacaoException;
 import br.com.calculadora.interfaces.ICalculadora;
 
 public class Multiplicacao implements ICalculadora{
 
 	@Override
 	public Integer calcula(Integer n1, Integer n2) {
-		if(n1 == null || n2 == null) {
-			System.out.println("É preciso informar os dois numeros!!!");
-			return 0;
+		
+		Integer result = 0;
+		
+		try {
+			if(n1 == null || n2 == null) {
+				throw new MultiplicacaoException();
+			}
+			
+			result = n1 * n2;
+		} catch (MultiplicacaoException e) {
+			e.getMessage("Necessario informar dois numeros!!");
 		}
-		return n1 * n2;
+		
+		return result;
 	}
 
 	@Override
 	public Float calcula(Float n1, Float n2) {
-		if(n1 == null || n2 == null) {
-			System.out.println("É preciso informar os dois numeros!!!");
-			return 0f;
+
+		Float result = null;
+		
+		try {
+			if(n1 == null || n2 == null) {
+				throw new MultiplicacaoException();
+			}
+			
+			result = n1 * n2;
+		} catch (MultiplicacaoException e) {
+			e.getMessage("Necessario informar dois numeros!!");
 		}
-		return n1 * n2;
+		
+		return result;
 	}
 
 	@Override
 	public Double calcula(Double n1, Double n2) {
-		if(n1 == null || n2 == null) {
-		   System.out.println("É preciso informar os dois numeros!!!");
-		   return 0d;
+
+		Double result = null;
+		
+		try {
+			if(n1 == null || n2 == null) {
+				throw new MultiplicacaoException();
+			}
+			
+			result = n1 * n2;
+		} catch (MultiplicacaoException e) {
+			e.getMessage("Necessario informar dois numeros!!");
 		}
 		
-		return n1 * n2;
+		return result;
 	}
 
 	@Override
