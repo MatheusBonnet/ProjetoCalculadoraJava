@@ -32,13 +32,28 @@ public class Programa {
 				interfaces.ICalculadora soma = new Soma();
 				
 				if(tipoEntrada.equals("inteiro")) {
-					System.out.println(soma.calcula(convertDoubleToInt(data)));
+					if(entrada.size() <= 2) {
+						System.out.println(soma.calcula(convertDoubleToIntWithOutArray(data[0]), convertDoubleToIntWithOutArray(data[1])));
+					}
+					else {
+						System.out.println(soma.calcula(convertDoubleToInt(data)));
+					}
 				}
 				if(tipoEntrada.equals("double")) {
-					System.out.println(soma.calcula(data));
+					if(entrada.size() <= 2) {
+						System.out.println(soma.calcula(data[0], data[1]));
+					}
+					else {
+					 System.out.println(soma.calcula(data));
+					}
 				}
 				if(tipoEntrada.equals("float")) {
-					System.out.println(soma.calcula(convertDoubleToFloat(data)));
+					if(entrada.size() <= 2) {
+						System.out.println(soma.calcula(convertDoubleToFloatWithOutArray(data[0]), convertDoubleToFloatWithOutArray(data[1])));
+					}
+					else {
+						System.out.println(soma.calcula(convertDoubleToFloat(data)));
+					}
 				}
 				
 				break;
@@ -47,27 +62,56 @@ public class Programa {
 				interfaces.ICalculadora sub = new Subtracao();
 				
 				if(tipoEntrada.equals("inteiro")) {
-					System.out.println(sub.calcula(convertDoubleToInt(data)));
+					if(entrada.size() <= 2) {
+						System.out.println(sub.calcula(convertDoubleToIntWithOutArray(data[0]), convertDoubleToIntWithOutArray(data[1])));
+					}
+					else {
+						System.out.println(sub.calcula(convertDoubleToInt(data)));
+					}
 				}
 				if(tipoEntrada.equals("double")) {
-					System.out.println(sub.calcula(data));
+					if(entrada.size() <= 2) {
+						System.out.println(sub.calcula(data[0], data[1]));
+					}
+					else {
+					 System.out.println(sub.calcula(data));
+					}
 				}
 				if(tipoEntrada.equals("float")) {
-					System.out.println(sub.calcula(convertDoubleToFloat(data)));
+					if(entrada.size() <= 2) {
+						System.out.println(sub.calcula(convertDoubleToFloatWithOutArray(data[0]), convertDoubleToFloatWithOutArray(data[1])));
+					}
+					else {
+						System.out.println(sub.calcula(convertDoubleToFloat(data)));
+					}
 				}
 				
 				break;
 			case 3:
 				interfaces.ICalculadora div = new Divisao();
-				
 				if(tipoEntrada.equals("inteiro")) {
-					System.out.println(div.calcula(convertDoubleToInt(data)));
+					if(entrada.size() <= 2) {
+						System.out.println(div.calcula(convertDoubleToIntWithOutArray(data[0]), convertDoubleToIntWithOutArray(data[1])));
+					}
+					else {
+						System.out.println(div.calcula(convertDoubleToInt(data)));
+					}
 				}
 				if(tipoEntrada.equals("double")) {
-					System.out.println(div.calcula(data));
+					if(entrada.size() <= 2) {
+						System.out.println(div.calcula(data[0], data[1]));
+					}
+					else {
+					 System.out.println(div.calcula(data));
+					}
 				}
 				if(tipoEntrada.equals("float")) {
-					System.out.println(div.calcula(convertDoubleToFloat(data)));
+					if(entrada.size() <= 2) {
+						System.out.println(div.calcula(convertDoubleToFloatWithOutArray(data[0]), convertDoubleToFloatWithOutArray(data[1])));
+					}
+					else {
+						System.out.println(div.calcula(convertDoubleToFloat(data)));
+					}
 				}
 				
 				break;
@@ -75,13 +119,28 @@ public class Programa {
 				ICalculadora multi = new Multiplicacao();
 				
 				if(tipoEntrada.equals("inteiro")) {
-					System.out.println(multi.calcula(convertDoubleToInt(data)));
+					if(entrada.size() <= 2) {
+						System.out.println(multi.calcula(convertDoubleToIntWithOutArray(data[0]), convertDoubleToIntWithOutArray(data[1])));
+					}
+					else {
+						System.out.println(multi.calcula(convertDoubleToInt(data)));
+					}
 				}
 				if(tipoEntrada.equals("double")) {
-					System.out.println(multi.calcula(data));
+					if(entrada.size() <= 2) {
+						System.out.println(multi.calcula(data[0], data[1]));
+					}
+					else {
+					 System.out.println(multi.calcula(data));
+					}
 				}
 				if(tipoEntrada.equals("float")) {
-					System.out.println(multi.calcula(convertDoubleToFloat(data)));
+					if(entrada.size() <= 2) {
+						System.out.println(multi.calcula(convertDoubleToFloatWithOutArray(data[0]), convertDoubleToFloatWithOutArray(data[1])));
+					}
+					else {
+						System.out.println(multi.calcula(convertDoubleToFloat(data)));
+					}
 				}
 				
 				break;
@@ -131,7 +190,7 @@ public class Programa {
 				entrada.add(scan.nextDouble());
 			}			
 			if (entrada.size() >= 2) {
-				System.out.println("Você deseja iserir mais número? [0 - SIM | 1 - NÃO]");
+				System.out.println("Você deseja inserir mais número? [0 - SIM | 1 - NÃO]");
 				usuarioQuerContinuar = scan.nextInt();
 			}
 			
@@ -176,11 +235,21 @@ public class Programa {
 	    return arr;
 	}
 	
+	public static Integer convertDoubleToIntWithOutArray(Double db) {
+	    Integer nmInt = (int) db.doubleValue();
+	    return nmInt;
+	}
+	
 	public static Float[] convertDoubleToFloat(Double[] array) {
 	    Float[] arr = new Float[array.length];
 	    for (int i = 0; i < array.length; i++) {
 	        arr[i] = Float.parseFloat(array[i].toString());
 	    }
 	    return arr;
+	}
+	
+	public static Float convertDoubleToFloatWithOutArray(Double db) {
+		Float nmFloat = Float.parseFloat(db.toString());
+	    return nmFloat;
 	}
 }
